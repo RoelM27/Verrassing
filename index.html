@@ -8,54 +8,81 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin-top: 50px;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
-            background-size: 400% 400%;
-            animation: gradientBG 10s ease infinite;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
             color: white;
         }
 
-        @keyframes gradientBG {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+        .container {
+            margin-top: 80px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
 
         input {
             padding: 10px;
             margin: 10px;
             width: 250px;
+            border-radius: 10px;
+            border: none;
         }
 
         button {
-            padding: 10px 20px;
+            padding: 12px 25px;
             font-size: 16px;
             cursor: pointer;
+            border-radius: 10px;
+            border: none;
+            background: #00c6ff;
+            color: white;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0072ff;
         }
 
         #verjaardag {
             display: none;
             font-size: 50px;
-            color: green;
+            color: #00ffcc;
             margin-top: 40px;
+        }
+
+        .foto-container {
+            margin-top: 30px;
+            display: none;
+        }
+
+        .foto-container img {
+            width: 200px;
+            margin: 10px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px black;
         }
     </style>
 </head>
 
 <body>
-    <h2>Vul in voor je verrassing...</h2>
-    <input type="text" id="naam" placeholder="Naam"><br>
-    <input type="text" id="zoon" placeholder="Favoriete zoon"><br>
-    <button onclick="toonBericht()">Verzenden</button>
-    <div id="verjaardag">🎉 Gelukkige verjaardag! 🎉</div>
+    <div class="container">
+        <h2>Vul in voor je verrassing...</h2>
+        <!-- Naam blijft zichtbaar -->
+        <input type="text" id="naam" placeholder="Naam"><br>
+        <!-- Roel veld (wordt later verborgen) -->
+        <div id="zoonContainer">
+            <input type="text" id="zoon" placeholder="Favoriete zoon"><br>
+        </div>
+        <button onclick="toonBericht()">Verzenden</button>
+        <div id="verjaardag">🎉 Gelukkige verjaardag! 🎉</div>
+        <div class="foto-container" id="fotos">
+            <img src="images/Foto1.jpeg" alt="foto">
+        </div>
+    </div>
     <script>
         function toonBericht() {
             let naam = document.getElementById("naam").value;
@@ -66,19 +93,22 @@
                 return;
             }
 
-            // Controle naam
             if (naam.toLowerCase() !== "bart") {
                 alert("FOUT! Denk is goed na...");
                 return;
             }
 
-            // Controle favoriete zoon
             if (zoon.toLowerCase() !== "roel") {
                 alert("FOUT! Denk is goed na...");
                 return;
             }
 
+            // Toon verjaardag + foto
             document.getElementById("verjaardag").style.display = "block";
+            document.getElementById("fotos").style.display = "block";
+
+            // Verberg Roel veld
+            document.getElementById("zoonContainer").style.display = "none";
         }
     </script>
 </body>
