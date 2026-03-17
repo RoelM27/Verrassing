@@ -65,15 +65,42 @@
             border-radius: 15px;
             box-shadow: 0 0 10px black;
         }
+
+        #extraTekst {
+            display: none;
+            margin-top: 20px;
+            font-size: 20px;
+            color: #ccc;
+            font-style: italic;
+        }
+
+        /* 📱 Mobile fix */
+        @media (max-width: 600px) {
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .container {
+                margin-top: 0;
+                width: 90%;
+                padding: 25px;
+            }
+
+            input {
+                width: 90%;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h2>Vul in voor je verrassing...</h2>
-        <!-- Naam blijft zichtbaar -->
         <input type="text" id="naam" placeholder="Naam"><br>
-        <!-- Roel veld (wordt later verborgen) -->
         <div id="zoonContainer">
             <input type="text" id="zoon" placeholder="Favoriete zoon"><br>
         </div>
@@ -82,8 +109,7 @@
         <div class="foto-container" id="fotos">
             <img src="images/Foto1.jpeg" alt="foto">
         </div>
-        <div id="extraTekst" style="display:none; margin-top:20px; font-size:20px;"> kijk op je rekening voor de rest
-            van de verrassing 😉 </div>
+        <div id="extraTekst"> kijk op je rekening voor de rest van de verrassing 😉 </div>
     </div>
     <script>
         function toonBericht() {
@@ -105,15 +131,12 @@
                 return;
             }
 
-            // Toon verjaardag + foto
             document.getElementById("verjaardag").style.display = "block";
             document.getElementById("fotos").style.display = "block";
-
-            // Verberg Roel veld
-            document.getElementById("zoonContainer").style.display = "none";
-
-            document.querySelector("button").style.display = "none";
             document.getElementById("extraTekst").style.display = "block";
+
+            document.getElementById("zoonContainer").style.display = "none";
+            document.querySelector("button").style.display = "none";
         }
     </script>
 </body>
