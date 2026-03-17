@@ -82,6 +82,8 @@
         <div class="foto-container" id="fotos">
             <img src="images/Foto1.jpeg" alt="foto">
         </div>
+        <div id="extraTekst" style="display:none; margin-top:20px; font-size:20px;"> kijk op je rekening voor de rest
+            van de verrassing 😉 </div>
     </div>
     <script>
         function toonBericht() {
@@ -111,6 +113,7 @@
             document.getElementById("zoonContainer").style.display = "none";
 
             document.querySelector("button").style.display = "none";
+            document.getElementById("extraTekst").style.display = "block";
         }
     </script>
 </body>
