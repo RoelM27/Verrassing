@@ -10,6 +10,7 @@
             text-align: center;
             margin: 0;
             padding: 0;
+            min-height: 100vh;
             background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
             color: white;
         }
@@ -69,29 +70,37 @@
         #extraTekst {
             display: none;
             margin-top: 20px;
-            font-size: 20px;
+            font-size: 18px;
             color: #ccc;
             font-style: italic;
         }
 
-        /* 📱 Mobile fix */
+        /* 📱 MOBILE FIX */
         @media (max-width: 600px) {
             body {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 100vh;
-                margin: 0;
+                min-height: 100vh;
             }
 
             .container {
-                margin-top: 0;
-                width: 90%;
-                padding: 25px;
+                margin: 0;
+                width: 95%;
+                height: auto;
+                padding: 30px 20px;
             }
 
             input {
                 width: 90%;
+            }
+
+            #verjaardag {
+                font-size: 32px;
+            }
+
+            .foto-container img {
+                width: 80%;
             }
         }
     </style>
@@ -102,7 +111,7 @@
         <h2>Vul in voor je verrassing...</h2>
         <input type="text" id="naam" placeholder="Naam"><br>
         <div id="zoonContainer">
-            <input type="text" id="zoon" placeholder="Favoriete zoon"><br>
+            <input type="text" id="zoon" placeholder="Favoriete kind"><br>
         </div>
         <button onclick="toonBericht()">Verzenden</button>
         <div id="verjaardag">🎉 Gelukkige verjaardag! 🎉</div>
@@ -127,7 +136,7 @@
             }
 
             if (zoon.toLowerCase() !== "roel") {
-                alert("FOUT! Denk is goed na...");
+                alert("Je mag niet liegen, probeer opnieuw 😉");
                 return;
             }
 
