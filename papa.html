@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Verjaardag</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 250px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #verjaardag {
+            display: none;
+            font-size: 50px;
+            color: green;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Vul je gegevens in</h2>
+    <input type="text" id="naam" placeholder="Naam"><br>
+    <input type="text" id="zoon" placeholder="Favoriete zoon"><br>
+    <button onclick="toonBericht()">Verzenden</button>
+    <div id="verjaardag">🎉 Gelukkige verjaardag! 🎉</div>
+    <script>
+        function toonBericht() {
+            let naam = document.getElementById("naam").value;
+            let zoon = document.getElementById("zoon").value;
+
+            if (naam === "" || zoon === "") {
+                alert("Vul eerst alles in!");
+                return;
+            }
+
+            // Controle naam
+            if (naam.toLowerCase() !== "bart") {
+                alert("FOUT! Denk is goed na...");
+                return;
+            }
+
+            // Controle favoriete zoon
+            if (zoon.toLowerCase() !== "roel") {
+                alert("FOUT! Denk is goed na...");
+                return;
+            }
+
+            document.getElementById("verjaardag").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
